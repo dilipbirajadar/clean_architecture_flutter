@@ -37,9 +37,6 @@ class CharacterListItem extends StatelessWidget {
   }
 }
 
-// -----------------------------------------------------------------------------
-// Helpers
-// -----------------------------------------------------------------------------
 
 class _ItemDescription extends StatelessWidget {
   const _ItemDescription({super.key, required this.item});
