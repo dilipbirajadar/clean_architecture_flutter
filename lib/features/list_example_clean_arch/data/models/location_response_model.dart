@@ -1,4 +1,4 @@
-import 'package:equatable/equatable.dart';
+import 'package:clean_architecture_example/features/list_example_clean_arch/domain/entity/location.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'location_response_model.g.dart';
@@ -8,13 +8,11 @@ part 'location_response_model.g.dart';
   fieldRename: FieldRename.snake,  
 )
 
-class LocationResponseModel extends Equatable{
-  final String? name;
-  final String? url;
+class LocationResponseModel extends Location{
 
-  const LocationResponseModel({
-    required this.name,
-    required this.url,
+   LocationResponseModel({
+     super.name,
+    super.url,
 
   });
 

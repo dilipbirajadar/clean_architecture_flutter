@@ -1,6 +1,7 @@
-import 'package:clean_architecture_example/features/list_example_clean_arch/data/models/character_response_model.dart';
+
+import 'package:clean_architecture_example/features/list_example_clean_arch/domain/entity/charactor.dart';
 
 
 abstract class CharacterRepository{
-   Future<List<CharacterResponseModel>> getCharacters({int page = 0});
+   Future<List<Character>> getCharacters({int page = 0});
 }

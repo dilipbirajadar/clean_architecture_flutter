@@ -15,12 +15,15 @@ CharacterResponseModel _$CharacterResponseModelFromJson(
       species: json['species'] as String?,
       type: json['type'] as String?,
       gender: json['gender'] as String?,
-      origin: json['origin'] == null
+      locationResponseOriginModel: json['location_response_origin_model'] ==
+              null
           ? null
-          : LocationRes.fromJson(json['origin'] as Map<String, dynamic>),
-      location: json['location'] == null
+          : LocationResponseModelOrigin.fromJson(
+              json['location_response_origin_model'] as Map<String, dynamic>),
+      locationResponseModel: json['location_response_model'] == null
           ? null
-          : LocationRes.fromJson(json['location'] as Map<String, dynamic>),
+          : LocationResponseModel.fromJson(
+              json['location_response_model'] as Map<String, dynamic>),
       image: json['image'] as String?,
       episode:
           (json['episode'] as List<dynamic>?)?.map((e) => e as String).toList(),
@@ -39,20 +42,38 @@ Map<String, dynamic> _$CharacterResponseModelToJson(
       'species': instance.species,
       'type': instance.type,
       'gender': instance.gender,
-      'origin': instance.origin?.toJson(),
-      'location': instance.location?.toJson(),
       'image': instance.image,
       'episode': instance.episode,
       'url': instance.url,
       'created': instance.created?.toIso8601String(),
+      'location_response_model': instance.locationResponseModel?.toJson(),
+      'location_response_origin_model':
+          instance.locationResponseOriginModel?.toJson(),
     };
 
-LocationRes _$LocationResFromJson(Map<String, dynamic> json) => LocationRes(
+LocationResponseModel _$LocationResponseModelFromJson(
+        Map<String, dynamic> json) =>
+    LocationResponseModel(
       name: json['name'] as String?,
       url: json['url'] as String?,
     );
 
-Map<String, dynamic> _$LocationResToJson(LocationRes instance) =>
+Map<String, dynamic> _$LocationResponseModelToJson(
+        LocationResponseModel instance) =>
+    <String, dynamic>{
+      'name': instance.name,
+      'url': instance.url,
+    };
+
+LocationResponseModelOrigin _$LocationResponseModelOriginFromJson(
+        Map<String, dynamic> json) =>
+    LocationResponseModelOrigin(
+      name: json['name'] as String?,
+      url: json['url'] as String?,
+    );
+
+Map<String, dynamic> _$LocationResponseModelOriginToJson(
+        LocationResponseModelOrigin instance) =>
     <String, dynamic>{
       'name': instance.name,
       'url': instance.url,

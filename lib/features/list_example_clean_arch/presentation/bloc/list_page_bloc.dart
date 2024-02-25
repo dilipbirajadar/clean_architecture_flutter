@@ -1,4 +1,5 @@
-import 'package:clean_architecture_example/features/list_example_clean_arch/data/models/character_response_model.dart';
+
+import 'package:clean_architecture_example/features/list_example_clean_arch/domain/entity/charactor.dart';
 import 'package:clean_architecture_example/features/list_example_clean_arch/domain/usecases/get_all_character.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

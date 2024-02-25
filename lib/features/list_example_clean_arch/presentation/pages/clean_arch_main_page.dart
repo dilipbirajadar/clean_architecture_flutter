@@ -1,4 +1,5 @@
-import 'package:clean_architecture_example/features/list_example_clean_arch/data/models/character_response_model.dart';
+
+import 'package:clean_architecture_example/features/list_example_clean_arch/domain/entity/charactor.dart';
 import 'package:clean_architecture_example/features/list_example_clean_arch/domain/usecases/get_all_character.dart';
 import 'package:clean_architecture_example/features/list_example_clean_arch/presentation/bloc/list_page_bloc.dart';
 import 'package:clean_architecture_example/features/list_example_clean_arch/presentation/pages/list_detail_page.dart';
@@ -84,7 +85,7 @@ class __ContentState extends State<_Content> {
     );
   }
 
-  void _goToDetails(CharacterResponseModel character) {
+  void _goToDetails(Character character) {
     final route = ListDetailsPage.route(character: character);
     Navigator.of(context).push(route);
   }

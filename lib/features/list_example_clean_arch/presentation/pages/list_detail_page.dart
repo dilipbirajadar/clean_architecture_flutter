@@ -1,5 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:clean_architecture_example/features/list_example_clean_arch/data/models/character_response_model.dart';
+import 'package:clean_architecture_example/features/list_example_clean_arch/domain/entity/charactor.dart';
 import 'package:clean_architecture_example/features/list_example_clean_arch/presentation/bloc/list_detail_example_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -7,7 +7,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class ListDetailsPage extends StatelessWidget {
   const ListDetailsPage({super.key});
 
-   static Route<void> route({required CharacterResponseModel character}) {
+   static Route<void> route({required Character character}) {
     return MaterialPageRoute(
       builder: (context) {
         return BlocProvider(

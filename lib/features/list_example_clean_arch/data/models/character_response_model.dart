@@ -1,3 +1,5 @@
+
+import 'package:clean_architecture_example/features/list_example_clean_arch/domain/entity/charactor.dart';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 
@@ -9,33 +11,23 @@ part 'character_response_model.g.dart';
   fieldRename: FieldRename.snake,  
 )
 
-class CharacterResponseModel extends Equatable{
-  final int? id;
-  final String? name;
-  final String? status;
-  final String? species;
-  final String? type;
-  final String? gender;
-  final LocationRes? origin;
-  final LocationRes? location;
-  final String? image;
-  final List<String>? episode;
-  final String? url;
-  final DateTime? created;
+class CharacterResponseModel  extends Character{
+final LocationResponseModel? locationResponseModel;
+final LocationResponseModelOrigin? locationResponseOriginModel;
 
- const CharacterResponseModel({
-    required this.id,
-    required this.name,
-    required this.status,
-    required this.species,
-    required this.type,
-    required this.gender,
-    required this.origin,
-    required this.location,
-    required this.image,
-    required this.episode,
-    required this.url,
-    required this.created,
+  CharacterResponseModel({
+    super.id,
+    super.name,
+    super.status,
+    super.species,
+    super.type,
+    super.gender,
+    required this.locationResponseOriginModel,
+    required this.locationResponseModel,
+    super.image,
+    super.episode,
+    super.url,
+    super.created,
   });
 
    factory CharacterResponseModel.fromJson(Map<String,dynamic> json) => _$CharacterResponseModelFromJson(json);
@@ -49,14 +41,13 @@ class CharacterResponseModel extends Equatable{
         species,
         type,
         gender,
-        origin,
-        location,
+        locationResponseOriginModel,
+        locationResponseModel,
         image,
         episode,
         url,
         created,];
 
-          bool get isAlive => status == 'Alive';
 
 }
 
@@ -64,8 +55,8 @@ class CharacterResponseModel extends Equatable{
   explicitToJson: true,
   fieldRename: FieldRename.snake,  
 )
-class LocationRes with EquatableMixin {
-  LocationRes({
+class LocationResponseModel with EquatableMixin {
+  LocationResponseModel({
     this.name,
     this.url,
   });
@@ -73,9 +64,33 @@ class LocationRes with EquatableMixin {
   final String? name;
   final String? url;
 
-     factory LocationRes.fromJson(Map<String,dynamic> json) => _$LocationResFromJson(json);
+     factory LocationResponseModel.fromJson(Map<String,dynamic> json) => _$LocationResponseModelFromJson(json);
 
-   Map<String,dynamic> toJson() => _$LocationResToJson(this);
+   Map<String,dynamic> toJson() => _$LocationResponseModelToJson(this);
+
+  @override
+  List<Object?> get props => [
+        name,
+        url,
+      ];
+}
+
+@JsonSerializable(
+  explicitToJson: true,
+  fieldRename: FieldRename.snake,  
+)
+class LocationResponseModelOrigin with EquatableMixin {
+  LocationResponseModelOrigin({
+    this.name,
+    this.url,
+  });
+
+  final String? name;
+  final String? url;
+
+     factory LocationResponseModelOrigin.fromJson(Map<String,dynamic> json) => _$LocationResponseModelOriginFromJson(json);
+
+   Map<String,dynamic> toJson() => _$LocationResponseModelOriginToJson(this);
 
   @override
   List<Object?> get props => [

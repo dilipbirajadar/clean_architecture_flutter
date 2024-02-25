@@ -1,9 +1,9 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:clean_architecture_example/features/list_example_clean_arch/data/models/character_response_model.dart';
+import 'package:clean_architecture_example/features/list_example_clean_arch/domain/entity/charactor.dart';
 import 'package:flutter/material.dart';
 
 
-typedef OnCharacterListItemTap = void Function(CharacterResponseModel character);
+typedef OnCharacterListItemTap = void Function(Character character);
 
 class CharacterListItem extends StatelessWidget {
   const CharacterListItem({
@@ -12,7 +12,7 @@ class CharacterListItem extends StatelessWidget {
     this.onTap,
   });
 
-  final CharacterResponseModel item;
+  final Character item;
   final OnCharacterListItemTap? onTap;
 
   @override
@@ -44,7 +44,7 @@ class CharacterListItem extends StatelessWidget {
 class _ItemDescription extends StatelessWidget {
   const _ItemDescription({super.key, required this.item});
 
-  final CharacterResponseModel item;
+  final Character item;
 
   @override
   Widget build(BuildContext context) {
@@ -102,7 +102,7 @@ class _ItemDescription extends StatelessWidget {
 class _ItemPhoto extends StatelessWidget {
   const _ItemPhoto({super.key, required this.item});
 
-  final CharacterResponseModel item;
+  final Character item;
 
   @override
   Widget build(BuildContext context) {
